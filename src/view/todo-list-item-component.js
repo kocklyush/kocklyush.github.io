@@ -12,8 +12,6 @@ function createTodoListComponentTemplate() {
     </div>`
       );
 }
-
-
 export default class TodoListItemComponent {
   constructor({task}) {
     this.task = task;
