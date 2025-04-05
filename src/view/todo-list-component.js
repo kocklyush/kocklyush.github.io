@@ -8,32 +8,22 @@ function createTodoListComponentTemplate() {
             </div>`
       );
 }
-
-
 export default class TodoListComponent {
   getTemplate() {
     return createTodoListComponentTemplate();
   }
-
-
   getElement() {
     if (!this.element) {
       this.element = createElement(this.getTemplate());
     }
-
-
     return this.element;
   }
   getList(){
     if (!this.element) {
         this.element = createElement(this.getTemplate());
       }
-  
-  
       return this.element.querySelector('.todo-list');
   }
-
-
   removeElement() {
     this.element = null;
   }
