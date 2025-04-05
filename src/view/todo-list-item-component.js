@@ -2,7 +2,7 @@ import {createElement} from '../framework/render.js';
 
 function createTodoListComponentTemplate() {
     return (
-        `<li class="todo-list-item">Навзвание первой задачи</li>`
+        `<li class="todo-list-item">Название первой задачи</li>`
       );
 }
 
