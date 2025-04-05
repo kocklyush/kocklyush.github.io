@@ -5,8 +5,6 @@ function createTodoListComponentTemplate() {
         `<li class="todo-list-item">Название первой задачи</li>`
       );
 }
-
-
 export default class TodoListItemComponent {
   getTemplate() {
     return createTodoListComponentTemplate();
