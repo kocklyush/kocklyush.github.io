@@ -3,7 +3,7 @@ import {createElement} from '../framework/render.js';
 
 function createTodoListItemComponentTemplate(title, Status) {
     return (
-        `<div class="todo-list-item todo-list-item--${status}">
+        `<div class="todo-list-item todo-list-item--${Status}">
       <div class="todo-list-item__body">
         <p class="todo-list-item__view">${title}</p>
         <input type="text" class="todo-list-item__input" />
