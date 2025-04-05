@@ -16,7 +16,7 @@ const tasksBoardPresenter = new TasksBoardPresenter({
 });
 
 
-render(new HeaderComponent(), bodyContainer, RenderPosition.BEFOREBEGIN);
+render(new HeaderComponent(), bodyContainer);
 render(new FormAddTaskComponent(), formContainer);
 
 tasksBoardPresenter.init();
