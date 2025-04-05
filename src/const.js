@@ -1,4 +1,4 @@
-const status = {
+const Status = {
     BACKLOG: backlog,
     PROCESSING: processing,
     DONE: done,
@@ -12,5 +12,5 @@ const status = {
     [Status.BASKET]: `Корзина`,
   };
   
-  export { status, StatusLabel };
+  export { Status, StatusLabel };
   

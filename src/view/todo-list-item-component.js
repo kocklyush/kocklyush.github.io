@@ -3,10 +3,10 @@ import {createElement} from '../framework/render.js';
 
 function createTodoListComponentTemplate() {
     return (
-        `<div class="todo-list-item task task--${status}">
+        `<div class="todo-list-item todo-list-item--${Status}">
       <div class="todo-list-item__body">
         <p class="todo-list-item__view">${title}</p>
-        <input type="text" class="new-item-input" />
+        <input type="text" class="todo-list-item__input" />
       </div>
       <button aria-label="Изменить" class="todo-list-item__edit" type="button"></button>
     </div>`
@@ -19,18 +19,12 @@ export default class TodoListItemComponent {
   getTemplate() {
     return createTodoListComponentTemplate();
   }
-
-
   getElement() {
     if (!this.element) {
       this.element = createElement(this.getTemplate());
     }
-
-
     return this.element;
   }
-
-
   removeElement() {
     this.element = null;
   }
