@@ -3,12 +3,12 @@ import {createElement} from '../framework/render.js';
 
 function createTodoListComponentTemplate() {
     return (
-        `<div class="taskboard__item task task--${status}">
-      <div class="task__body">
-        <p class="task__view">${title}</p>
-        <input type="text" class="task__input" />
+        `<div class="todo-list-item task task--${status}">
+      <div class="todo-list-item__body">
+        <p class="todo-list-item__view">${title}</p>
+        <input type="text" class="new-item-input" />
       </div>
-      <button aria-label="Изменить" class="task__edit" type="button"></button>
+      <button aria-label="Изменить" class="todo-list-item__edit" type="button"></button>
     </div>`
       );
 }
