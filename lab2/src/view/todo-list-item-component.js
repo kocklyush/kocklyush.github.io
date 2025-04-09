@@ -1,8 +1,9 @@
-import {createElement} from 'lab2/src/framework/render.js'; 
+import {createElement} from 'C:\Users\Dasha\helpp\src\framework\render.js'; 
+
 
 function createTodoListComponentTemplate() {
     return (
-        `<li class="todo-list-item">Название первой задачи</li>`
+        `<li class="todo-list-item">Назввание первой задачи</li>`
       );
 }
 export default class TodoListItemComponent {

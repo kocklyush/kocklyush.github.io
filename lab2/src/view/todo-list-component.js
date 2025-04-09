@@ -1,4 +1,6 @@
-import {createElement} from 'lab2/src/framework/render.js'; 
+import {createElement} from 'C:\Users\Dasha\helpp\src\framework\render.js'; 
+
+
 function createTodoListComponentTemplate() {
     return (
         `<div class="todo-list-box">
