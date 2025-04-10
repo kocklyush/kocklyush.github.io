@@ -1,21 +1,21 @@
 import {createElement} from 'lab2/src/framework/render.js'; 
 
 function createTodoListComponentTemplate() {
-    return (
-        `<li class="todo-list-item">Название первой задачи</li>`
-      );
+  return (
+      `<li class="todo-list-item">Название первой задачи</li>`
+    );
 }
 export default class TodoListItemComponent {
-  getTemplate() {
-    return createTodoListComponentTemplate();
+getTemplate() {
+  return createTodoListComponentTemplate();
+}
+getElement() {
+  if (!this.element) {
+    this.element = createElement(this.getTemplate());
   }
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-    return this.element;
-  }
-  removeElement() {
-    this.element = null;
-  }
+  return this.element;
+}
+removeElement() {
+  this.element = null;
+}
 }

@@ -1,9 +1,9 @@
-import HeaderComponent from 'lab2/src/view/header-component.js';
+import HeaderComponent from './view/header-component.js';
 import {render, RenderPosition} from './framework/render.js';
-import FormAddTaskComponent from 'lab2/src/view/form-add-task-component.js';
-import TodoListComponent from 'lab2/src/view/todo-list-component.js';
-import TodoListItemComponent from 'lab2/src/view/todo-list-item-component.js';
-import BoardTaskComponent from 'lab2/src/view/boardtask-component.js';
+import FormAddTaskComponent from './view/form-add-task-component.js';
+import TodoListComponent from './view/todo-list-component.js';
+import TodoListItemComponent from './view/todo-list-item-component.js';
+import BoardTaskComponent from './view/boardtask-component.js';
 
 const bodyContainer = document.querySelector('.board-app-task');
 const formContainer = document.querySelector('.add-task');
