@@ -1,10 +1,10 @@
-import {createElement} from 'lab2/src/framework/render.js'; 
+import {createElement} from '../framework/render.js'; 
 
 function createHeaderComponentTemplate() {
     return (
         `<header class="header">
-    <a class="header-label">Список задач</a>
-</header>`
+        <a class="header-label">Список задач</a>
+        </header>`
       );
 }
 export default class HeaderComponent {

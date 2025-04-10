@@ -1,4 +1,4 @@
-import {createElement} from 'lab2/src/framework/render.js'; 
+import {createElement} from '../framework/render.js'; 
 
 function createFormAddTaskComponentTemplate() {
     return (
