@@ -1,48 +1,47 @@
-export const tasks = [
+export const tasks =[
     {
-      id: "1",
-      title: "Сходить в магаз",
-      status: "backlog",
+        id: "1",
+        title: "Выучить JS",
+        status: "backlog",
     },
     {
-      id: "2",
-      title: "Найти попутку",
-      status: "backlog",
+        id: "2",
+        title: "Выучить React",
+        status: "backlog",
     },
     {
-      id: "3",
-      title: "Устроиться на работу",
-      status: "backlog",
+        id: "3",
+        title: "Сделать домашку",
+        status: "processing",
     },
     {
-      id: "4",
-      title: "Выучить JS",
-      status: "processing",
+        id: "4",
+        title: "Выпить смузи",
+        status: "processing",
     },
     {
-      id: "5",
-      title: "Выучить React",
-      status: "processing",
+        id: "5",
+        title: "Позвонить маме",
+        status: "ready",
     },
     {
-      id: "6",
-      title: "Создать пет-проект",
-      status: "done",
+        id: "6",
+        title: "Попить воды",
+        status: "ready",
     },
     {
-      id: "7",
-      title: "Обновить резюме",
-      status: "backlog",
+        id: "7",
+        title: "Погладить кота",
+        status: "bin",
     },
     {
-      id: "8",
-      title: "Пройти курс по TypeScript",
-      status: "processing",
+        id: "8",
+        title: "Сходить погулять",
+        status: "bin",
     },
     {
-      id: "9",
-      title: "Подготовиться к собеседованию",
-      status: "backlog",
+        id: "9",
+        title: "Прочитать Войну и Мир",
+        status: "bin",
     }
-  ]
-  
+]

@@ -1,22 +1,16 @@
 import HeaderComponent from './view/header-component.js';
+import {render, RenderPosition} from './framework/render.js';
 import FormAddTaskComponent from './view/form-add-task-component.js';
 import TasksBoardPresenter from './presenter/tasks-board-presenter.js';
-import {render, RenderPosition} from './framework/render.js';
-import TasksModel from './model/tasks-model.js';
+import TasksModel from './model/task-model.js';
 
-
-const bodyContainer = document.querySelector('.board-app');
+const bodyContainer = document.querySelector('.board-app-task');
 const formContainer = document.querySelector('.add-task');
-const tasksBoardContainer = document.querySelector('.taskboard');
+const tasksBoardContainer=document.querySelector('.taskboard');
+const taskModel=new TasksModel();
+const tasksBoardPresenter=new TasksBoardPresenter({boardContainer:tasksBoardContainer,tasksModel:taskModel,});
 
-const tasksModel = new TasksModel();
-const tasksBoardPresenter = new TasksBoardPresenter({
-  boardContainer: tasksBoardContainer,
-  tasksModel,
-});
-
-
-render(new HeaderComponent(), bodyContainer);
+render(new HeaderComponent(), bodyContainer, RenderPosition.BEFOREBEGIN);
 render(new FormAddTaskComponent(), formContainer);
 
 tasksBoardPresenter.init();
