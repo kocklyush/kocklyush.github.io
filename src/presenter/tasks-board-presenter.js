@@ -11,12 +11,14 @@ export default class TasksBoardPresenter{
 
     #boardContainer=null;
     #tasksModel=null;
+    #binButtonComponent = null;
 
-    #boardTasks=[];
 
     constructor({boardContainer,tasksModel}){
         this.#boardContainer=boardContainer;
         this.#tasksModel= tasksModel;
+
+        this.#tasksModel.addObserver(this.#handleModelChange.bind(this));
     }
 
     init() {
@@ -47,19 +49,57 @@ export default class TasksBoardPresenter{
         }
     }
     #renderBinButton(container){
-        const binButtonComponent=new BinButtonComponent();
-                    render(binButtonComponent, container);
+        if(!this.#binButtonComponent){
+            this.#binButtonComponent = new BinButtonComponent({
+                onClick: this.#handleBinClear.bind(this)
+            });
+        }
+        render(this.#binButtonComponent, container);
+        
     }
 
     #renderBoard(){
         render(this.#tasksBoardComponent, this.#boardContainer);    
-        
-            
-        // this.#boardTasks = this.#tasksModel.tasks;
+
         for(let i=0;i<Object.keys(StatusI).length;i++){
             const status=StatusI[i];
-            this.#renderTodoList(status,this.#tasksBoardComponent.element, this.#boardTasks)
+            this.#renderTodoList(status,this.#tasksBoardComponent.element, this.tasks)
         } 
         
     }
+
+    createTask(){
+        const taskTitle = document.querySelector('#new-item-input').value.trim();
+        if(!taskTitle){
+            return;
+        }
+        this.#tasksModel.addTask(taskTitle);
+        document.querySelector('#new-item-input').value='';
+    }
+
+    get tasks(){
+        return this.#tasksModel.tasks;
+    }
+
+    #clearBoard(){
+        this.#tasksBoardComponent.element.innerHTML = '';
+    }
+
+    #handleModelChange(){
+        this.#clearBoard();
+        this.#renderBoard();
+    }
+
+    #clearBin(){
+        this.#tasksModel.clearBin();
+        this.#tasksBoardComponent.element.innerHTML = '';
+    }
+
+
+    #handleBinClear() {
+        this.#clearBin();
+        this.#binButtonComponent.setUnviable();
+        this.#renderBoard();
+    }
+    
 }

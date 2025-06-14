@@ -10,7 +10,18 @@ const tasksBoardContainer=document.querySelector('.taskboard');
 const taskModel=new TasksModel();
 const tasksBoardPresenter=new TasksBoardPresenter({boardContainer:tasksBoardContainer,tasksModel:taskModel,});
 
+
 render(new HeaderComponent(), bodyContainer, RenderPosition.BEFOREBEGIN);
-render(new FormAddTaskComponent(), formContainer);
+
 
 tasksBoardPresenter.init();
+
+const formAddTaskComponent=new FormAddTaskComponent({
+    onClick: handleNewTaskButtonClick
+});
+
+function handleNewTaskButtonClick(){
+    tasksBoardPresenter.createTask();
+}
+
+render(formAddTaskComponent, formContainer);
