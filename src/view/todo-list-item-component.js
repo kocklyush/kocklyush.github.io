@@ -1,34 +1,37 @@
 import {createElement} from '../framework/render.js'; 
+import { AbstractComponent } from '../framework/view/abstract-component.js';
+
+// function createTodoListComponentTemplate() {
+//     return (
+//         `<li class="todo-list-item">Навзвание первой задачи</li>`
+//       );
+// }
 
 
-function createTodoListItemComponentTemplate(title, Status) {
-    return (
-        `<div class="todo-list-item todo-list-item--${Status}">
-      <div class="todo-list-item__body">
-        <p class="todo-list-item__view">${title}</p>
-        <input type="text" class="todo-list-item__input" />
-      </div>
-      <button aria-label="Изменить" class="todo-list-item__edit" type="button"></button>
-    </div>`
-      );
+
+function createTodoListComponentTemplate(task) {
+  const {title,status}=task;
+  return (
+      `<div class="taskboard__item task task--${status}">
+        <div class=task__body>
+          <li class="todo-list-item-${status} todo-list-item">
+          <div   contenteditable="true" class="task--input" disabled>${title}</div>
+          </li>
+        </div>
+      </div>`
+    );
 }
-export default class TodoListItemComponent {
-  constructor({task}) {
-    this.task = task;
+
+
+export default class TodoListItemComponent extends AbstractComponent{
+
+  constructor({task}){
+    super();
+    this.task=task;
   }
 
-  getTemplate() {
-    return createTodoListItemComponentTemplate(this.task.title, this.task.status);
-  }
 
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-    return this.element;
-  }
-
-  removeElement() {
-    this.element = null;
+  get template() {
+    return createTodoListComponentTemplate(this.task);
   }
 }
