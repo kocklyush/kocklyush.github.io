@@ -1,5 +1,5 @@
 import {createElement} from '../framework/render.js'; 
-
+import { AbstractComponent } from '../framework/view/abstract-component.js';
 
 function createTodoListComponentTemplate(title,status) {
     return (
@@ -10,27 +10,23 @@ function createTodoListComponentTemplate(title,status) {
             </div>`
       );
 }
-export default class TodoListComponent {
+
+
+export default class TodoListComponent extends AbstractComponent{
   constructor({title,status}){
+    super();
     this.title=title;
     this.status=status;
   }
-  getTemplate() {
+  get template() {
     return createTodoListComponentTemplate(this.title,this.status);
-  }
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-    return this.element;
   }
   getList(){
     if (!this.element) {
-        this.element = createElement(this.getTemplate());
+        this.element = createElement(this.template);
       }
+  
+  
       return this.element.querySelector('.todo-list');
-  }
-  removeElement() {
-    this.element = null;
   }
 }

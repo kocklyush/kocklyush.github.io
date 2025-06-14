@@ -45,17 +45,32 @@
     border-left: 5px solid #b0b0b0;
     font-family: 'Open Sans', sans-serif;
 }
+
+.todo-list-item-mock{
+    display: flex; 
+    list-style-type: none;
+    font-size: 20px;
+    min-height: max-content;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    color: #b0b0b0;
+    border: 5px dotted #b0b0b0;
+    font-family: 'Open Sans', sans-serif;
+}
 .todo-list-item-backlog {
-    border-left: 5px solid #d0d0d0;
+    border-left: 5px solid #b0b0b0;
 }
 .todo-list-item-processing {
-    border-left: 5px solid #8cfbcd;
+    border-left: 5px solid #7bf0e6;
 }
 .todo-list-item-ready {
-    border-left: 5px solid #e0fd26;
+    border-left: 5px solid #26fd5c;
 }
 .todo-list-item-bin {
-    border-left: 5px solid #d824ba;
+    border-left: 5px solid #d82424;
 }
 body{
     background-color:#dff5f8;
@@ -68,10 +83,18 @@ body{
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
 }
+.task--input-mock{
+    pointer-events: none;
+    width: 85%;
+    color: #b0b0b0;
+    outline: none;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
 .task__edit{
     border: none;
     outline: none; 
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0);
 }
 .todo-list-label{
     font-size:20px;
@@ -85,16 +108,16 @@ body{
     background-color: #b0b0b0; font-family: 'Open Sans', sans-serif;
 }
 .todo-list-label-backlog{
-    background-color: #d0d0d0;
+    background-color: #b0b0b0;
 }
 .todo-list-label-processing{
-    background-color: #8cfbcd;
+    background-color: #7bf0e6;
 }
 
 .todo-list-label-ready{
-    background-color: #e0fd26;
+    background-color: #26fd5c;
 }.todo-list-label-bin{
-    background-color: #d824ba;
+    background-color: #d82424;
 }
 
 
@@ -120,7 +143,7 @@ body{
     height: 100%-2px;
     flex: 1; 
     margin-right: 10px; 
-    border: 1px solid #949393;
+    border: 1px solid #757575;
     border-radius: 10px;
 }
 
@@ -129,7 +152,7 @@ body{
     height: 100%;
     width: max-content;
     border-radius: 10px;
-    background-color: #639af7;
+    background-color: #2979ff;
     border: 1px dashed;
     color:white;
     border: 0px;
@@ -149,6 +172,6 @@ body{
     
     height: 50px;
     border-radius: 10px;
-    background-color: #ec4040;
+    background-color: #d82424;
     color:white; font-family: 'Open Sans', sans-serif;
 }
