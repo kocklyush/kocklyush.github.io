@@ -1,22 +1,28 @@
 import {createElement} from '../framework/render.js'; 
 
-function createHeaderComponentTemplate() {
+
+function createBinButtonComponent() {
     return (
-        `<header class="header">
-        <a class="header-label">Список задач</a>
-        </header>`
+        `<button class="clear-button">x Очистить</button>`
       );
 }
-export default class HeaderComponent {
+
+
+export default class BinButtonComponent {
   getTemplate() {
-    return createHeaderComponentTemplate();
+    return createBinButtonComponent();
   }
+
+
   getElement() {
     if (!this.element) {
       this.element = createElement(this.getTemplate());
     }
+
+
     return this.element;
   }
+
   removeElement() {
     this.element = null;
   }

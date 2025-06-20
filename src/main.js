@@ -1,26 +1,16 @@
 import HeaderComponent from './view/header-component.js';
 import {render, RenderPosition} from './framework/render.js';
 import FormAddTaskComponent from './view/form-add-task-component.js';
-import TodoListComponent from './view/todo-list-component.js';
-import TodoListItemComponent from './view/todo-list-item-component.js';
-import BoardTaskComponent from './view/boardtask-component.js';
+import TasksBoardPresenter from './presenter/tasks-board-presenter.js';
+import TasksModel from './model/task-model.js';
 
 const bodyContainer = document.querySelector('.board-app-task');
 const formContainer = document.querySelector('.add-task');
+const tasksBoardContainer=document.querySelector('.taskboard');
+const taskModel=new TasksModel();
+const tasksBoardPresenter=new TasksBoardPresenter({boardContainer:tasksBoardContainer,tasksModel:taskModel,});
+
 render(new HeaderComponent(), bodyContainer, RenderPosition.BEFOREBEGIN);
 render(new FormAddTaskComponent(), formContainer);
-const boardTaskElemenet=new BoardTaskComponent();
-render(boardTaskElemenet,bodyContainer);
 
-const todoLists = document.querySelector('.todo-lists-space');
-
-for (let i = 0; i < 4; i++) {
-    const todoListComponent = new TodoListComponent();
-    render(todoListComponent, todoLists, RenderPosition.BEFOREEND);
-
-    const todoListElement = todoListComponent.getList();
-
-    for (let j = 0; j < 4; j++) {
-        render(new TodoListItemComponent(), todoListElement, RenderPosition.BEFOREEND);
-    }
-}
+tasksBoardPresenter.init();
