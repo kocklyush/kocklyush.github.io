@@ -16,6 +16,7 @@ function createTodoListComponentTemplate(task) {
         <div class=task__body>
           <li class="todo-list-item-${status} todo-list-item">
           <div   contenteditable="true" class="task--input" disabled>${title}</div>
+          <button aria-label="Изменить" class="task__edit" type="button"></button>
           </li>
         </div>
       </div>`
