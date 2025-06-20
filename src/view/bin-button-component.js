@@ -10,28 +10,9 @@ function createBinButtonComponent() {
 
 
 export default class BinButtonComponent extends AbstractComponent{
-
-
-  #handleClick = null;
-
-  constructor({onClick}) {
-    super();
-    this.#handleClick = onClick;
-    this.element.addEventListener('click', this.#clickHandler);
-  }
+  constructor() {
+    super();}
   get template() {
     return createBinButtonComponent();
-  }
-  #clickHandler=(evt)=>{
-    evt.preventDefault();
-    this.#handleClick();
-  }
-
-  toggleDisabled(isDisabled){
-    
-    this.element.disabled = isDisabled;
-  }
-  setUnviable(){
-    this.element.disabled = true;
   }
 }
