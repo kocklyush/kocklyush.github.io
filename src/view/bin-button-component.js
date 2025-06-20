@@ -1,4 +1,5 @@
 import {createElement} from '../framework/render.js'; 
+import { AbstractComponent } from '../framework/view/abstract-component.js';
 
 
 function createBinButtonComponent() {
@@ -8,22 +9,24 @@ function createBinButtonComponent() {
 }
 
 
-export default class BinButtonComponent {
-  getTemplate() {
+export default class BinButtonComponent extends AbstractComponent{
+
+
+  #handleClick = null;
+
+  constructor({onClick}) {
+    super();
+    this.#handleClick = onClick;
+    this.element.addEventListener('click', this.#clickHandler);
+  }
+  get template() {
     return createBinButtonComponent();
   }
-
-
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-
-
-    return this.element;
+  #clickHandler=(evt)=>{
+    evt.preventDefault();
+    this.#handleClick();
   }
-
-  removeElement() {
-    this.element = null;
+  setUnviable(){
+    this.element.disabled = true;
   }
 }

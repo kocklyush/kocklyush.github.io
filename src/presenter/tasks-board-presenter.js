@@ -4,37 +4,102 @@ import TodoListItemComponent from '../view/todo-list-item-component.js'
 import{Status,StatusI,StatusLabel} from '../const.js'
 import { render } from '../framework/render.js';
 import BinButtonComponent from '../view/bin-button-component.js';
+import MockItemComponent from '../view/mock-item-component.js';
 
 export default class TasksBoardPresenter{
-    tasksBoardComponent=new BoardTaskComponent();
+    #tasksBoardComponent=new BoardTaskComponent();
 
-    boardContainer=null;
-    tasksModel=null;
+    #boardContainer=null;
+    #tasksModel=null;
+    #binButtonComponent = null;
 
-    boardTasks=[];
 
     constructor({boardContainer,tasksModel}){
-        this.boardContainer=boardContainer;
-        this.tasksModel= tasksModel;
+        this.#boardContainer=boardContainer;
+        this.#tasksModel= tasksModel;
+
+        this.#tasksModel.addObserver(this.#handleModelChange.bind(this));
     }
 
     init() {
-        this.boardTasks = this.tasksModel.getTasks();
-        render(this.tasksBoardComponent, this.boardContainer);        
-        for(let i=0;i<Object.keys(StatusI).length;i++){
-            const status=StatusI[i];
-            const todoListComponent=new TodoListComponent({ title: StatusLabel[status] ,status:status});
-            render(todoListComponent, this.tasksBoardComponent.getElement());
-            const todoListElement = todoListComponent.getList();
-            const statArray=this.boardTasks.filter(task => task.status === status);
-            statArray.forEach((task)=>{
-                const taskComponent = new TodoListItemComponent({ task});
-                    render(taskComponent, todoListElement);
-            })
-            if(status==Status.BIN){
-                const binButtonComponent=new BinButtonComponent();
-                render(binButtonComponent, todoListElement);
-            }
+        this.#renderBoard()
+    }
+
+    #renderTask(task,container){
+        const taskComponent=new TodoListItemComponent({task});
+        render(taskComponent,container);
+    }
+    #renderMockTask(container){
+        const taskComponent=new MockItemComponent();
+        render(taskComponent,container);
+    }
+    #renderTodoList(status,container,boardTasks){
+        const todoListComponent=new TodoListComponent({ title: StatusLabel[status] ,status:status});
+        render(todoListComponent, container);
+        const todoListElement = todoListComponent.getList();
+        const statArray=boardTasks.filter(task => task.status === status);
+        if(statArray.length>0){
+            statArray.forEach((task)=>{this.#renderTask(task,todoListElement);})
+        }
+        else{
+            this.#renderMockTask(todoListElement);
+        }
+        if(status===StatusI[3]){
+            this.#renderBinButton(todoListElement);
         }
     }
+    #renderBinButton(container){
+        if(!this.#binButtonComponent){
+            this.#binButtonComponent = new BinButtonComponent({
+                onClick: this.#handleBinClear.bind(this)
+            });
+        }
+        render(this.#binButtonComponent, container);
+        
+    }
+
+    #renderBoard(){
+        render(this.#tasksBoardComponent, this.#boardContainer);    
+
+        for(let i=0;i<Object.keys(StatusI).length;i++){
+            const status=StatusI[i];
+            this.#renderTodoList(status,this.#tasksBoardComponent.element, this.tasks)
+        } 
+        
+    }
+
+    createTask(){
+        const taskTitle = document.querySelector('#new-item-input').value.trim();
+        if(!taskTitle){
+            return;
+        }
+        this.#tasksModel.addTask(taskTitle);
+        document.querySelector('#new-item-input').value='';
+    }
+
+    get tasks(){
+        return this.#tasksModel.tasks;
+    }
+
+    #clearBoard(){
+        this.#tasksBoardComponent.element.innerHTML = '';
+    }
+
+    #handleModelChange(){
+        this.#clearBoard();
+        this.#renderBoard();
+    }
+
+    #clearBin(){
+        this.#tasksModel.clearBin();
+        this.#tasksBoardComponent.element.innerHTML = '';
+    }
+
+
+    #handleBinClear() {
+        this.#clearBin();
+        this.#binButtonComponent.setUnviable();
+        this.#renderBoard();
+    }
+    
 }
