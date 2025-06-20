@@ -1,0 +1,215 @@
+.addnewtaskform{
+    background-color: white;
+    width: 400px;
+    height: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-radius: 10px; 
+    display: grid;
+
+}
+.addnewtaskform-label{
+    height:28px;
+    font-size: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: #2979ff;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+.header-label{
+    margin-left: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+.backlog-item{
+    list-style-type: none;
+    font-size:20px;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border-left: 5px solid #b0b0b0;
+    font-family: 'Open Sans', sans-serif;
+}
+.inprocess-item{
+    list-style-type: none;
+    font-size:20px;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border-left: 5px solid rgb(97, 255, 255); font-family: 'Open Sans', sans-serif;
+}
+.ready-item{
+    list-style-type: none;
+    font-size:20px;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border-left: 5px solid #6ef572 ; font-family: 'Open Sans', sans-serif;
+}
+.bin-item{
+    list-style-type: none;
+    font-size:20px;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    border-left: 5px solid #ee7777; font-family: 'Open Sans', sans-serif;
+} 
+.todo-list-backlog{
+    padding-left: 0%;
+    display:grid;
+    row-gap: 10px;
+}
+.todo-list-inprocess{
+    padding-left: 0%;
+    display:grid;
+    row-gap: 10px;
+} 
+.todo-list-ready{
+    padding-left: 0%;
+    display:grid;
+    row-gap: 10px;
+}  
+.todo-list-bin{
+    padding-left: 0%;
+    display:grid;
+    row-gap: 10px;
+} 
+.backlog-todo-list-box{
+    height: max-content;
+    row-gap: 10px;
+    width: 25%;
+    display: grid;
+    margin-left: 50px;
+}
+.bin-todo-list-box{
+    height: max-content;
+    row-gap: 10px;
+    width: 25%;
+    display: grid;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+.ready-todo-list-box{
+    height: max-content;
+    row-gap: 10px;
+    width: 25%;
+    display: grid;
+    margin-left: 20px;
+}
+.inprocces-todo-list-box{
+    height: max-content;
+    row-gap: 10px;
+    width: 25%;
+    display: grid;
+    margin-left: 20px;
+}
+body{
+    background-color:#dff5f8;
+}
+
+.backlog-label{
+    font-size:20px;
+    width: max-content;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color:#302f2f;
+    height: 35px;
+    background-color: #b0b0b0; font-family: 'Open Sans', sans-serif;
+}
+.inprocess-label{
+    font-size:20px;
+    width: max-content;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color:rgb(34, 94, 94);
+    height: 35px;
+    background-color:rgb(97, 255, 255); font-family: 'Open Sans', sans-serif;
+}
+.ready-label{
+    font-size:20px;
+    width: max-content;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color:#207923;
+    height: 35px;
+    background-color: #6ef572; font-family: 'Open Sans', sans-serif;
+}
+.bin-label{
+    font-size:20px;
+    width: max-content;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    color:#811a1a;
+    height: 35px;
+    background-color: #ee7777; font-family: 'Open Sans', sans-serif;
+}
+   
+.lists-box{
+    width: 100%;
+    padding-top:50px;
+    display: flex;
+}
+
+.clear-button{
+    font-size:20px;
+    width: 100%;
+    
+    height: 50px;
+    border-radius: 10px;
+    background-color: #d82424;
+    color:white; font-family: 'Open Sans', sans-serif;
+}
+
+.new-item-input{
+    height: 100%-2px;
+    flex: 1; 
+    margin-right: 10px; 
+    border: 1px solid #757575;
+    border-radius: 10px;
+}
+
+.new-item-add-button{
+    font-size: 16px;
+    height: 100%;
+    width: max-content;
+    border-radius: 10px;
+    background-color: #2979ff;
+    border: 1px dashed;
+    color:white;
+    border: 0px;
+    padding-left: 30px;
+    padding-right: 30px; font-family: 'Open Sans', sans-serif;
+} 
+.new-item-element{
+    height: 45px;
+    display: flex; 
+    align-items: stretch;  font-family: 'Open Sans', sans-serif;
+}
+

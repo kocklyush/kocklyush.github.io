@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        * {
+            margin: 0;
+        }
+       </style>
+</head>
+<header class="header">
+    <a class="header-label">Список задач</a>
+</header>
+<body>
+    <main>
+        <form class="addnewtaskform">
+            <label class="addnewtaskform-label">Новая задача</label><br>
+            <div class="new-item-element">
+                <input class="new-item-input" placeholder="Название задачи...">
+                <button class="new-item-add-button">+ Добавить</button>
+            </div>
+        </form>
+        <div class="lists-box">
+        <div class="backlog-todo-list-box">
+                <label class="backlog-label">Бэклог</label>
+                <ul class="todo-list-backlog">
+                    <li class="backlog-item">Выучить JS</li>
+                    <li class="backlog-item">Выучить React</li>
+                    <li class="backlog-item">Сделать домашку</li>
+                </ul>
+            </div>
+            <div class="inprocces-todo-list-box">
+                <label class="inprocess-label">В процессе</label>
+                <ul class="todo-list-inprocess">
+                    <li class="inprocess-item">Выпить смузи</li>
+                    <li class="inprocess-item">Попить воды</li>
+                </ul>
+            </div>
+            <div class="ready-todo-list-box">
+                <label class="ready-label">Готово</label>
+                <ul class="todo-list-ready">
+                    <li class="ready-item">Позвонить маме</li>
+                    <li class="ready-item">Погладить кота</li>
+                </ul>   
+            </div>
+            <div class="bin-todo-list-box">
+                <label class="bin-label">Корзина</label>
+                <ul class="todo-list-bin">
+                    <li class="bin-item">Сходить погулять</li>
+                    <li class="bin-item">Прочитать Войну и Мир</li>
+                </ul>
+                <button class="clear-button">x Очистить</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
