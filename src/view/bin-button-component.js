@@ -26,6 +26,11 @@ export default class BinButtonComponent extends AbstractComponent{
     evt.preventDefault();
     this.#handleClick();
   }
+
+  toggleDisabled(isDisabled){
+    
+    this.element.disabled = isDisabled;
+  }
   setUnviable(){
     this.element.disabled = true;
   }

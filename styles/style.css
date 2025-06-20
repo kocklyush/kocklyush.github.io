@@ -125,7 +125,13 @@ body{
     padding-left: 0%;
     display:grid;
     row-gap: 15px;
+
+    min-height: 100%;
 }
+.todo-list > *:last-child {
+    margin-bottom: 100%;
+}
+
 .todo-lists-space{
     display: flex;
     padding-top: 50px;
