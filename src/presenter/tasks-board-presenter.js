@@ -34,18 +34,30 @@ export default class TasksBoardPresenter{
         render(taskComponent,container);
     }
     #renderTodoList(status,container,boardTasks){
-        const todoListComponent=new TodoListComponent({ title: StatusLabel[status] ,status:status});
+        const todoListComponent = new TodoListComponent({
+            title: StatusLabel[status],
+            status: status,
+            onTaskDrop: this.#handleTaskDrop.bind(this)  
+          });
         render(todoListComponent, container);
         const todoListElement = todoListComponent.getList();
         const statArray=boardTasks.filter(task => task.status === status);
         if(statArray.length>0){
             statArray.forEach((task)=>{this.#renderTask(task,todoListElement);})
+            
+            if(status===StatusI[3]){
+                this.#renderBinButton(todoListElement);
+                
+                this.#binButtonComponent.toggleDisabled(false);
+            }
         }
         else{
             this.#renderMockTask(todoListElement);
-        }
-        if(status===StatusI[3]){
-            this.#renderBinButton(todoListElement);
+            
+            if(status===StatusI[3]){
+                this.#renderBinButton(todoListElement);
+                this.#binButtonComponent.toggleDisabled(true);
+            }
         }
     }
     #renderBinButton(container){
@@ -98,8 +110,10 @@ export default class TasksBoardPresenter{
 
     #handleBinClear() {
         this.#clearBin();
-        this.#binButtonComponent.setUnviable();
         this.#renderBoard();
     }
     
+    #handleTaskDrop(taskId,newStatus){
+        this.#tasksModel.updateTaskStatus(taskId, newStatus, arguments[2]);
+    }
 }
