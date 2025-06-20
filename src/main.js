@@ -6,7 +6,7 @@ import TasksModel from './model/task-model.js';
 import TasksApiService from './tasks-api-service.js';
 
 
-const END_POINT='https://68122c053ac96f7119a7242e.mockapi.io'
+const END_POINT='https://mockapi.io/projects/685530996a6ef0ed66319d00#'
 const bodyContainer = document.querySelector('.board-app-task');
 const formContainer = document.querySelector('.add-task');
 const tasksBoardContainer=document.querySelector('.taskboard');
