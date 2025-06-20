@@ -16,6 +16,7 @@ function createTodoListComponentTemplate(task) {
         <div class=task__body>
           <li class="todo-list-item-${status} todo-list-item">
           <div   contenteditable="true" class="task--input" disabled>${title}</div>
+          <button aria-label="Изменить" class="task__edit" type="button"></button>
           </li>
         </div>
       </div>`
@@ -28,10 +29,23 @@ export default class TodoListItemComponent extends AbstractComponent{
   constructor({task}){
     super();
     this.task=task;
+    this.#afterCreateElement();
   }
 
 
   get template() {
     return createTodoListComponentTemplate(this.task);
+  }
+
+  #afterCreateElement(){
+    this.#makeTaskDraggable();
+  }
+
+  #makeTaskDraggable(){
+    this.element.setAttribute(`draggable`,true);
+
+    this.element.addEventListener('dragstart',(event)=>{
+      event.dataTransfer.setData('text/plain',this.task.id);
+    });
   }
 }
