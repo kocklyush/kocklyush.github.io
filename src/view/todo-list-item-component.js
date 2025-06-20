@@ -1,4 +1,13 @@
 import {createElement} from '../framework/render.js'; 
+import { AbstractComponent } from '../framework/view/abstract-component.js';
+
+// function createTodoListComponentTemplate() {
+//     return (
+//         `<li class="todo-list-item">Навзвание первой задачи</li>`
+//       );
+// }
+
+
 
 function createTodoListComponentTemplate(task) {
   const {title,status}=task;
@@ -14,21 +23,15 @@ function createTodoListComponentTemplate(task) {
 }
 
 
-export default class TodoListItemComponent {
+export default class TodoListItemComponent extends AbstractComponent{
 
   constructor({task}){
+    super();
     this.task=task;
   }
-  getTemplate() {
+
+
+  get template() {
     return createTodoListComponentTemplate(this.task);
-  }
-  getElement() {
-    if (!this.element) {
-      this.element = createElement(this.getTemplate());
-    }
-    return this.element;
-  }
-  removeElement() {
-    this.element = null;
   }
 }
